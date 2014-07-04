@@ -9,6 +9,7 @@ HAS_EDITOR = False
 
 try:
     import editor
+    import console
     HAS_EDITOR = True
 except:
     pass
@@ -22,6 +23,7 @@ def main(self, line):
         if HAS_EDITOR:
             print 'Opening {0} in Pythonista editor.'.format(args[0])
             editor.open_file(os.path.join(os.getcwd(), args[0]))
+            console.hide_output()
         else:
             import platform
             if platform.system() == 'Linux':
